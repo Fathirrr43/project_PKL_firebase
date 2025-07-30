@@ -11,7 +11,7 @@ class PaketUmrah extends StatefulWidget {
 class _PaketUmrahState extends State<PaketUmrah> {
   @override
   Widget build(BuildContext context) {
-     return Scaffold(
+    return Scaffold(
       backgroundColor: const Color(0xFFF6F8FB),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -19,13 +19,23 @@ class _PaketUmrahState extends State<PaketUmrah> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Profile Header
-              Padding(
+              Container(
+                color: Color(0xFF242D3A), // Set background color here
                 padding: const EdgeInsets.all(16.0),
                 child: Row(
                   children: [
-                    CircleAvatar(
-                      backgroundImage: AssetImage('assets/images/pp.png'),
-                      radius: 20,
+                    Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          color: Color(0xFFF4C95D), // Border color
+                          width: 2.0, // Border width
+                        ),
+                      ),
+                      child: CircleAvatar(
+                        backgroundImage: AssetImage('assets/images/pp.png'),
+                        radius: 20,
+                      ),
                     ),
                     const SizedBox(width: 10),
                     Column(
@@ -35,7 +45,7 @@ class _PaketUmrahState extends State<PaketUmrah> {
                           EdgeInsets.zero,
                           'Muhammad Fathir Alfarici',
                           TextAlign.left,
-                          Colors.black,
+                          const Color.fromARGB(255, 255, 255, 255),
                           FontWeight.bold,
                           16.0,
                         ),
@@ -43,26 +53,20 @@ class _PaketUmrahState extends State<PaketUmrah> {
                           children: [
                             const Icon(
                               Icons.location_on,
-                              color: Colors.black54,
+                              color: Color(0xFFF4C95D),
                               size: 15,
                             ),
                             textView(
                               EdgeInsets.zero,
                               'Palembang, Indonesia',
                               TextAlign.left,
-                              Colors.black54,
+                              Color(0xFFF4C95D),
                               FontWeight.normal,
                               12.0,
                             ),
                           ],
                         ),
                       ],
-                    ),
-                    const Spacer(),
-                    const Icon(
-                      Icons.notifications,
-                      color: Colors.black,
-                      size: 30,
                     ),
                   ],
                 ),
@@ -114,25 +118,27 @@ class _PaketUmrahState extends State<PaketUmrah> {
                   children: [
                     const SizedBox(width: 16),
                     _buildUmrahPackageCard(
-                      'assets/images/paket umrah reguler.png',
-                      'Umrah Reguler',
-                      'Rp 20.000.000/orang',
+                      'assets/images/umrah irit.png',
+                      'Umrah Irit',
+                      'Rp 28.900.000/orang',
                       const Color(0xFF1E293B),
                       const Color(0xFF1E40AF),
                       const Color.fromARGB(255, 255, 255, 255),
                       const Color(0xFFF4C95D),
-                      const Color(0xFFF4C95D),
+                      const Color(0xFF242D3A), // Text color for button
+                      const Color(0xFFF4C95D), // Button color
                     ),
                     const SizedBox(width: 16),
                     _buildUmrahPackageCard(
-                      'assets/images/paket umrah+tour.png',
-                      'Umrah Plus Tour',
-                      'Rp 40.000.000/orang',
+                      'assets/images/umrah elit.png',
+                      'Umrah Elit',
+                      'Rp 33.500.000/orang',
                       const Color(0xFFFAD961),
                       const Color(0xFFFBC02D),
                       const Color(0xFF242D3A),
                       const Color(0xFF242D3A),
-                      const Color(0xFF242D3A),
+                      const Color(0xFFFFFFFF),  // Text color for button
+                      const Color(0xFF242D3A), // Button color
                     ),
                     const SizedBox(width: 16),
                     // Add more package cards as needed
@@ -321,6 +327,7 @@ class _PaketUmrahState extends State<PaketUmrah> {
     Color gradientColor2,
     Color packageNameColor,
     Color priceColor,
+    Color buttonTextColor, // New parameter for button text color
     Color buttonColor,
   ) {
     return Container(
@@ -375,9 +382,9 @@ class _PaketUmrahState extends State<PaketUmrah> {
               price,
               TextAlign.left,
               priceColor,
-              FontWeight.normal,
+              FontWeight.bold,
               14.0,
-            ), // Use priceColor here
+            ), // Make price bold and use priceColor
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
@@ -399,7 +406,7 @@ class _PaketUmrahState extends State<PaketUmrah> {
                 EdgeInsets.zero,
                 'Lihat Detail',
                 TextAlign.center,
-                const Color(0xFF1E293B),
+                buttonTextColor, // Use the new parameter for text color
                 FontWeight.bold,
                 14.0,
               ),
@@ -490,7 +497,7 @@ class _PaketUmrahState extends State<PaketUmrah> {
                       TextAlign.right,
                       package['priceStatus'] == 'PENUH'
                           ? Colors.red
-                          : Colors.green,
+                          : Color(0xFFF4C95D),
                       FontWeight.bold,
                       14.0,
                     ),
