@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/widgets/textview.dart';
-import 'package:myapp/views/faq.dart'; // Import Faq
-import 'package:myapp/views/lokasi.dart'; // Import LokasiCabang
-import 'package:myapp/views/sholat.dart'; // Import WaktuShalat
-import 'package:myapp/views/umrah.dart'; // Import PaketUmrah
+import 'package:myapp/views/faq.dart'; 
+import 'package:myapp/views/lokasi.dart';
+import 'package:myapp/views/sholat.dart';
+import 'package:myapp/views/umrah.dart'; 
 import 'package:provider/provider.dart';
 
 class BottomNavigationBarProvider with ChangeNotifier {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-textView(margin, text, posisi, warna, tebal, ukuran) {
+Widget textView(EdgeInsets margin, String text, TextAlign posisi, Color warna, FontWeight tebal, double ukuran) {
   return Container(
     margin: margin,
     child: Text(

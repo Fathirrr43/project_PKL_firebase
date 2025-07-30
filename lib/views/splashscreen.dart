@@ -222,7 +222,6 @@ class ShinePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     if (progress > 0) {
-      final rect = Offset.zero & size;
       final shineWidth = size.width * 0.4;
       final shineRect = Rect.fromLTWH(
         size.width * progress - shineWidth / 2,
