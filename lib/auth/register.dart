@@ -45,9 +45,11 @@ class _RegisterState extends State<Register> {
       appBar: AppBar(
         title: Text(
           'Sign Up',
-          style: GoogleFonts.poppins( // Using Poppins as an example font
+          style: GoogleFonts.poppins(
+            // Using Poppins as an example font
             color: Colors.black,
             fontWeight: FontWeight.bold,
+            fontSize: 16,
           ),
         ),
         backgroundColor: Colors.transparent, // Make app bar transparent
@@ -55,7 +57,7 @@ class _RegisterState extends State<Register> {
         iconTheme: IconThemeData(color: Colors.black), // Set back button color
         centerTitle: true,
       ),
-      extendBodyBehindAppBar: true, // Extend body behind app bar
+      // extendBodyBehindAppBar: true, // Extend body behind app bar
       body: Padding(
         padding: const EdgeInsets.all(24.0), // Increased padding
         child: Center(
@@ -63,20 +65,25 @@ class _RegisterState extends State<Register> {
             child: Form(
               key: _formKey,
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start, // Align text to start
+                crossAxisAlignment:
+                    CrossAxisAlignment.start, // Align text to start
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
                     'Buat akun Anda',
-                    style: GoogleFonts.poppins( // Using Poppins
-                      fontSize: 28,
+                    style: GoogleFonts.poppins(
+                      // Using Poppins
+                      fontSize: 22,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   SizedBox(height: 8.0),
                   Text(
                     'Daftar untuk memulai perjalanan Anda',
-                    style: GoogleFonts.poppins(fontSize: 16, color: Colors.grey[600]), // Using Poppins
+                    style: GoogleFonts.poppins(
+                      fontSize: 15,
+                      color: Colors.grey[600],
+                    ), // Using Poppins
                   ),
                   SizedBox(height: 32.0),
                   Row(
@@ -92,7 +99,10 @@ class _RegisterState extends State<Register> {
                               borderRadius: BorderRadius.circular(8.0),
                               borderSide: BorderSide.none,
                             ),
-                            contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
+                            contentPadding: EdgeInsets.symmetric(
+                              horizontal: 16.0,
+                              vertical: 14.0,
+                            ),
                           ),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
@@ -114,7 +124,10 @@ class _RegisterState extends State<Register> {
                               borderRadius: BorderRadius.circular(8.0),
                               borderSide: BorderSide.none,
                             ),
-                             contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
+                            contentPadding: EdgeInsets.symmetric(
+                              horizontal: 16.0,
+                              vertical: 14.0,
+                            ),
                           ),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
@@ -133,11 +146,14 @@ class _RegisterState extends State<Register> {
                       hintText: 'Masukkan Email',
                       filled: true,
                       fillColor: Colors.grey[200],
-                       border: OutlineInputBorder(
+                      border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8.0),
                         borderSide: BorderSide.none,
                       ),
-                       contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
+                      contentPadding: EdgeInsets.symmetric(
+                        horizontal: 16.0,
+                        vertical: 14.0,
+                      ),
                     ),
                     keyboardType: TextInputType.emailAddress,
                     validator: (value) {
@@ -152,19 +168,25 @@ class _RegisterState extends State<Register> {
                     },
                   ),
                   SizedBox(height: 16.0),
+
+                  //tampilan password
                   TextFormField(
                     controller: _passwordController,
                     decoration: InputDecoration(
                       hintText: 'Masukkan Password',
-                       filled: true,
+                      filled: true,
                       fillColor: Colors.grey[200],
-                       border: OutlineInputBorder(
+                      border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8.0),
                         borderSide: BorderSide.none,
                       ),
-                       contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
+                      contentPadding: EdgeInsets.symmetric(
+                        horizontal: 16.0,
+                        vertical: 14.0,
+                      ),
                     ),
                     obscureText: true,
+                    //validasi password
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Password tidak boleh kosong';
@@ -176,17 +198,34 @@ class _RegisterState extends State<Register> {
                     },
                   ),
                   SizedBox(height: 24.0),
-                  ElevatedButton(
-                    onPressed: _registerUser,
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFF4B0082), // Warna Ungu Tua
-                      padding: EdgeInsets.symmetric(vertical: 16.0),
-                      textStyle: GoogleFonts.poppins(fontSize: 18, color: Colors.white), // Using Poppins
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.0),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: _registerUser,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xFF1E4584), // Warna biru tua
+                        padding: EdgeInsets.symmetric(vertical: 16.0),
+                        textStyle: GoogleFonts.poppins(
+                          fontSize: 18,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(
+                            12.0,
+                          ), // Lebih presisi dan modern
+                        ),
+                        elevation: 2,
+                      ),
+                      child: Text(
+                        'Buat Akun',
+                        style: GoogleFonts.poppins(
+                          color: Colors.white, // Warna font putih agar kontras
+                          fontWeight: FontWeight.w400,
+                          fontSize: 14,
+                        ),
                       ),
                     ),
-                    child: Text('Buat Akun'),
                   ),
                   SizedBox(height: 16.0),
                   Row(
@@ -194,16 +233,21 @@ class _RegisterState extends State<Register> {
                     children: [
                       Text(
                         'Anda sudah punya akun?',
-                         style: GoogleFonts.poppins(), // Using Poppins
-                        ),
+                        style: GoogleFonts.poppins(), // Using Poppins
+                      ),
                       TextButton(
                         onPressed: () {
                           // TODO: Navigate to Login Page
-                           Navigator.pop(context); // Example: pop back to previous screen
+                          Navigator.pop(
+                            context,
+                          ); // Example: pop back to previous screen
                         },
                         child: Text(
                           'Login',
-                          style: GoogleFonts.poppins(color: Color(0xFF4B0082), fontWeight: FontWeight.bold), // Using Poppins
+                          style: GoogleFonts.poppins(
+                            color: Color(0xFF1900A6),
+                            fontWeight: FontWeight.bold,
+                          ), // Using Poppins
                         ),
                       ),
                     ],

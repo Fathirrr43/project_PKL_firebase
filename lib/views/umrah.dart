@@ -544,13 +544,15 @@ class _PaketUmrahState extends State<PaketUmrah> {
         children: [
           Icon(icon, color: textColor, size: 20),
           const SizedBox(width: 10),
-          textView(
-            EdgeInsets.zero,
-            text,
-            TextAlign.left,
-            textColor,
-            FontWeight.normal,
-            14.0,
+          Expanded(
+            child: textView(
+              EdgeInsets.zero,
+              text,
+              TextAlign.left,
+              textColor,
+              FontWeight.normal,
+              14.0,
+            ),
           ),
         ],
       ),
